@@ -1,36 +1,10 @@
-'use client'
-
+import { getServerSession } from "next-auth/next";
+import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/route";
+import TrackList from "@/components/TrackList";
 import Loader from "@/components/Loader";
-import TrackItem from "@/components/TrackItem";
-import { useSidebar } from "@/hooks/useSidebar";
-import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
-import { RecentItem } from "@/types"; // Importe os tipos
 
-export default function Recent() {
-
-    const { data: session } = useSession();
-    const [recentData, setRecentData] = useState<RecentItem[] | null>(null);
-    const { updateItemIndex } = useSidebar();
-    
-    useEffect(() => {    
-        updateItemIndex("recent");
-    }, []);
-
-    useEffect(() => {
-        async function f() {
-            if (session && session.accessToken) {
-                const response = await fetch("https://api.spotify.com/v1/me/player/recently-played", {
-                    headers: {
-                        Authorization: `Bearer ${session?.accessToken}`
-                    }
-                });
-                const data = await response.json();
-                setRecentData(data.items);
-            }
-        }
-        f();
-    }, [session]);
+export default async function Recent() {
+    const session = await getServerSession(nextAuthOptions);
 
     return (
         <div className="flex py-16 max-w-6xl w-full">
@@ -40,24 +14,7 @@ export default function Recent() {
                 </header>
 
                 <section className="flex py-20 w-full">
-                    <ul className="flex flex-col gap-5 w-full">
-                        {recentData ? (
-                        recentData.map(({ track }, i) => (
-                            track && track.album && track.album.images[2] ? (
-                                <TrackItem
-                                    musicName={track.name}
-                                    artistName={track.artists[0].name}
-                                    albumName={track.album.name}
-                                    musicTime={new Date(track.duration_ms).toISOString().substr(14, 5)}
-                                    imageSrc={track.album.images[2].url}
-                                    width={50}
-                                    key={i}
-                                />
-                            ) : null
-                        ))) : (
-                            <Loader />
-                        )}
-                    </ul>
+                    <TrackList session={session} />
                 </section>
             </div>
         </div>

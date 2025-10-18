@@ -1,17 +1,6 @@
-'use client'
-
 import TrackItem from "@/components/TrackItem";
-import { useSidebar } from "@/hooks/useSidebar";
-import { useEffect } from "react";
 
 export default function TopTracks() {
-
-    const { updateItemIndex } = useSidebar();
-
-    useEffect(() => {    
-        updateItemIndex("top-tracks");
-    }, [])
-
     return (
         <div className="flex py-16 max-w-6xl w-full">
             <div className="flex flex-col flex-1 mt-2">
