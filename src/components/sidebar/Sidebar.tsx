@@ -1,29 +1,23 @@
-'use client';
+"use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import SidebarItem from "./SidebarItem";
 import { SidebarItemType } from "@/types";
-import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ImGithub } from "react-icons/im";
 
 export default function Sidebar() {
     const pathname = usePathname();
-    const [selected, setSelected] = useState<number>(-1);
 
     const items: SidebarItemType[] = [
         { route: "/", icon: "profile", text: "Profile", id: 0, name: "profile" },
         { route: "/artists", icon: "microphone", text: "Top Artists", id: 1, name: "top-artists" },
         { route: "/tracks", icon: "music", text: "Top Tracks", id: 2, name: "top-tracks" },
         { route: "/recent", icon: "time", text: "Recent", id: 3, name: "recent" },
-        { route: "/playlists", icon: "playlist", text: "Playlists", id: 4, name: "playlists" }
-    ]
+        { route: "/playlists", icon: "playlist", text: "Playlists", id: 4, name: "playlists" },
+    ];
 
-    useEffect(() => {
-        const currentItem = items.find(item => pathname.endsWith(item.route));
-        setSelected(currentItem ? currentItem.id : -1);
-    }, [pathname]);
+    const activeId = items.find((item) => item.route === "/" ? pathname === "/" : pathname.startsWith(item.route))?.id ?? -1;
 
     return (
         <aside className="w-24 bg-black flex flex-col justify-between shadow-[0_0_10px_rgba(0,0,0,0.3)]">
@@ -32,8 +26,8 @@ export default function Sidebar() {
             </nav>
 
             <ul className="flex flex-col">
-                {items.map(item => (
-                    <SidebarItem key={item.id} item={item} selected={selected} updateSelected={setSelected} />
+                {items.map((item) => (
+                    <SidebarItem key={item.id} item={item} active={activeId === item.id} />
                 ))}
             </ul>
 

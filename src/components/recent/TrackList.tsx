@@ -1,5 +1,5 @@
 import { getRecentlyPlayedTracks } from "@/app/api/data";
-import TrackItem from "./TrackItem";
+import TrackItem from "../track/TrackItem";
 
 export default async function TrackList(session: any) {
     const posts = await getRecentlyPlayedTracks(session.session);
@@ -12,7 +12,7 @@ export default async function TrackList(session: any) {
                         musicName={track.name}
                         artistName={track.artists[0].name}
                         albumName={track.album.name}
-                        musicTime={new Date(track.duration_ms).toISOString().substr(14, 5)}
+                        duration={track.duration_ms}
                         imageSrc={track.album.images[2].url}
                         width={50}
                         key={i}

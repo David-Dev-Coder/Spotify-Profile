@@ -24,10 +24,10 @@ function Icon({ name, className }: { name: string, className?: string }) {
     }
 }
 
-export default function SidebarItem({ item, selected, updateSelected }: { item: SidebarItemType, selected: number | null, updateSelected: (id: number) => void }) {
+export default function SidebarItem({ item, active }: { item: SidebarItemType, active: boolean }) {
 
     return (
-        <li className={`border-l-4 transition duration-500 ${item.id === selected ? "bg-zinc-900 border-green-500" : "border-transparent hover:bg-zinc-900 hover:border-green-500"}`} key={item.id} onClick={() => updateSelected(item.id)}>
+        <li className={`border-l-4 transition duration-500 ${active ? "bg-zinc-900 border-green-500" : "border-transparent hover:bg-zinc-900 hover:border-green-500"}`} key={item.id}>
             <Link href={item.route} className="grid place-items-center py-4">
                 <div className="flex flex-col items-center gap-1 text-xs text-zinc-200">
                     <Icon name={item.icon} className="w-6 h-6" />

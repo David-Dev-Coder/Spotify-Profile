@@ -1,4 +1,4 @@
-import ItemImageContent from "./ItemImageContent";
+import ItemImageContent from "../ItemImageContent";
 
 export default function ArtistItem({ name, imageSrc, width = 50, row = false } : { name: string, imageSrc: string, width: number, row?: boolean }) {
     return (

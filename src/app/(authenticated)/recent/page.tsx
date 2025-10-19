@@ -1,7 +1,6 @@
 import { getServerSession } from "next-auth/next";
 import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/route";
-import TrackList from "@/components/TrackList";
-import Loader from "@/components/Loader";
+import TrackList from "@/components/recent/TrackList";
 
 export default async function Recent() {
     const session = await getServerSession(nextAuthOptions);
@@ -13,7 +12,7 @@ export default async function Recent() {
                     <h1 className="text-2xl font-bold">Recently Played Tracks</h1>
                 </header>
 
-                <section className="flex py-20 w-full">
+                <section className="flex mt-20 w-full">
                     <TrackList session={session} />
                 </section>
             </div>

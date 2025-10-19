@@ -16,7 +16,7 @@ export default async function Home() {
     const props: ProfileProps = {
         user: userData,
         playlists: playlists,
-        following: following
+        following: following,
     };
 
     return <ProfileDisplay {...props} />;

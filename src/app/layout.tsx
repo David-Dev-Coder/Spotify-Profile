@@ -1,24 +1,21 @@
-import SessionProvider from '@/providers/sessionProvider'
-import './globals.css'
-import type { Metadata } from 'next'
+import SessionProvider from "@/providers/sessionProvider";
+import "./globals.css";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: 'Spotify Profile',
-    description: 'Spotify Profile',
-}
+    title: "Spotify Profile",
+    description: "Spotify Profile",
+    icons: {
+        icon: "/logo.svg",
+    },
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <SessionProvider>
-        <html lang="pt-br">
-            <body className="bg-zinc-900 text-zinc-50 font-body">
-                {children}
-            </body>
-        </html>
-    </SessionProvider>
-  )
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+    return (
+        <SessionProvider session={null}>
+            <html lang="pt-br">
+                <body className="bg-zinc-900 text-zinc-50 font-body">{children}</body>
+            </html>
+        </SessionProvider>
+    );
 }

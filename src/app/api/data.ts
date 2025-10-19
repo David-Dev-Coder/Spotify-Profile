@@ -44,9 +44,21 @@ export async function getFollowingArtists(session: any) {
     }
 }
 
-export async function getTopArtists(session: any, timeRange: string = "medium_term") {
+export async function getTopArtists(session: any, timeRange: string = "medium_term", limit: number = 50) {
     if (session && session.accessToken) {
-        const response = await fetch(`https://api.spotify.com/v1/me/top/artists?limit=50&time_range=${timeRange}`, {
+        const response = await fetch(`https://api.spotify.com/v1/me/top/artists?limit=${limit}&time_range=${timeRange}`, {
+            headers: {
+                Authorization: `Bearer ${session?.accessToken}`,
+            },
+        });
+        const data = await response.json();
+        return data.items;
+    }
+}
+
+export async function getTopTracks(session: any, timeRange: string = "medium_term", limit: number = 50) {
+    if (session && session.accessToken) {
+        const response = await fetch(`https://api.spotify.com/v1/me/top/tracks?limit=${limit}&time_range=${timeRange}`, {
             headers: {
                 Authorization: `Bearer ${session?.accessToken}`,
             },
