@@ -42,3 +42,9 @@
 ::-webkit-scrollbar-thumb:hover {
     background-color: #474747;
 }
+
+@layer base {
+    .default-container {
+        @apply flex max-w-6xl w-[calc(100%-2rem)] py-16;
+    }
+}

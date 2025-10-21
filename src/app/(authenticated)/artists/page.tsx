@@ -15,9 +15,9 @@ export default async function TopArtists({ searchParams }: PageProps) {
     const timeRange = searchParams.range || "long_term";
 
     return (
-        <div className="flex max-w-6xl w-full py-16">
+        <div className="default-container">
             <div className="flex flex-col flex-1 mt-2">
-                <nav className="flex justify-between">
+                <nav className="flex justify-between items-center">
                     <h1 className="text-2xl font-bold">Top Artists</h1>
                     <div className="flex gap-4">
                         <Link href="/artists?range=long_term" className={`hover:text-zinc-50 transition duration-300 ${timeRange === "long_term" ? "text-zinc-50 underline underline-offset-4" : "text-zinc-400"}`}>

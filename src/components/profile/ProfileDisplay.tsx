@@ -6,7 +6,7 @@ import ArtistList from "../artist/ArtistList";
 
 export default function ProfileDisplay({ user, playlists, following }: ProfileProps) {
     return (
-        <div className="flex flex-col py-16 max-w-6xl w-full">
+        <div className="default-container flex-col">
             <ProfileHeader user={user} playlists={playlists} following={following} />
 
             <section className="mt-24">

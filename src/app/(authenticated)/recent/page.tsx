@@ -6,7 +6,7 @@ export default async function Recent() {
     const session = await getServerSession(nextAuthOptions);
 
     return (
-        <div className="flex py-16 max-w-6xl w-full">
+        <div className="default-container">
             <div className="flex flex-col flex-1 mt-2">
                 <header className="flex">
                     <h1 className="text-2xl font-bold">Recently Played Tracks</h1>

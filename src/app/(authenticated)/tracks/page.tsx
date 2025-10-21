@@ -15,9 +15,9 @@ interface PageProps {
 export default async function TopTracks({ searchParams }: PageProps) {
     const timeRange = searchParams.range || "long_term";
     return (
-        <div className="flex py-16 max-w-6xl w-full">
+        <div className="default-container">
             <div className="flex flex-col flex-1 mt-2">
-                <header className="flex justify-between">
+                <nav className="flex justify-between items-center">
                     <h1 className="text-2xl font-bold">Top Tracks</h1>
                     <div className="flex gap-4">
                         <Link href="/tracks?range=long_term" className={`hover:text-zinc-50 transition duration-300 ${timeRange === "long_term" ? "text-zinc-50 underline underline-offset-4" : "text-zinc-400"}`}>
@@ -30,7 +30,7 @@ export default async function TopTracks({ searchParams }: PageProps) {
                             Last 4 Weeks
                         </Link>
                     </div>
-                </header>
+                </nav>
 
                 <section className="flex mt-20 w-full">
                     <Suspense fallback={<Loader />}>

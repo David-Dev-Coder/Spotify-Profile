@@ -32,7 +32,7 @@ export default function Sidebar() {
             </ul>
 
             <nav className="flex items-center justify-center h-24">
-                <a href="https://github.com/David-Dev-Coder" target="_blank">
+                <a className="hover:text-green-500" href="https://github.com/David-Dev-Coder" target="_blank">
                     <ImGithub className="w-10 h-10" />
                 </a>
             </nav>
