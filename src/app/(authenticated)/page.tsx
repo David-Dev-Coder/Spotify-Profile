@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth";
 import { nextAuthOptions } from "../api/auth/[...nextauth]/route";
-import { fetchPlaylists, getFollowingArtists, getUserData } from "../api/data";
+import { getUserPlaylists, getFollowingArtists, getUserData } from "../api/data";
 import ProfileDisplay from "@/components/profile/ProfileDisplay";
 import { ProfileProps } from "@/types";
 
@@ -9,7 +9,7 @@ export default async function Home() {
 
     const [userData, playlists, following]: [ProfileProps['user'], ProfileProps['playlists'], ProfileProps['following']] = await Promise.all([
         getUserData(session),
-        fetchPlaylists(session),
+        getUserPlaylists(session),
         getFollowingArtists(session),
     ]);
 

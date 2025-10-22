@@ -17,7 +17,7 @@ export default function Sidebar() {
         { route: "/playlists", icon: "playlist", text: "Playlists", id: 4, name: "playlists" },
     ];
 
-    const activeId = items.find((item) => item.route === "/" ? pathname === "/" : pathname.startsWith(item.route))?.id ?? -1;
+    const activeId = items.find((item) => item.route === pathname)?.id ?? -1;
 
     return (
         <aside className="w-24 bg-black flex flex-col justify-between shadow-[0_0_10px_rgba(0,0,0,0.3)]">

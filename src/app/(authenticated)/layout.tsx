@@ -18,7 +18,7 @@ export default async function AuthenticatedLayout({
 
     return (
         <NextAuthSessionProvider session={session}>
-            <div className="h-screen flex flex-col">
+            <div className="h-[100dvh] flex flex-col">
                 <div className="flex flex-1 overflow-hidden">
                     <Sidebar />
 
