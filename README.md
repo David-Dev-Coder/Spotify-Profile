@@ -2,9 +2,16 @@
 
 Aplicação com diversas funcionalidades, principalmente focadas em exibir dados recebidos da API do Spotify.
 
+Inspirado no projeto da [@BrittanyChiang](https://brittanychiang.com/)
+
 ## Funcionalidades
 
 - **Profile Tab**: Visualizar as informações gerais como: nome, foto e seguidores.
+- **Top Artists Tab**: Visualizar os artistas mais escutados.
+- **Top Tracks Tab**: Visualizar as músicas mais ouvidas. 
+- **Recent Tab**: Visualizar as últimas músicas tocadas.
+- **Playlist Tab**: Visualizar suas playlists.
+- Visualização dos atributos individuais de cada playlist/artista/música.
 
 ## Tecnologias utilizadas
 
@@ -12,6 +19,10 @@ Aplicação com diversas funcionalidades, principalmente focadas em exibir dados
 - Tailwind
 - Typescript
 - Spotify API
+
+## Deploy
+
+https://spotify-profile-ivory.vercel.app/
 
 ## Autor
 
