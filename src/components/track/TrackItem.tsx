@@ -1,16 +1,10 @@
+import Link from "next/link";
 import ItemImageContent from "../ItemImageContent";
+import { convertedMusicTime } from "@/util";
 
-export default function TrackItem({ musicName, artistName, albumName, duration, imageSrc, width = 50 } : { musicName: string, artistName: string, albumName: string, duration: string, imageSrc: string, width: number }) {
-    // ms to min:sec
-    const convertedMusicTime = (_duration: string) => {
-        const numDuration = Number(_duration);
-        const min = Math.floor(numDuration / 60000);
-        const sec = Math.floor((numDuration % 60000) / 1000);
-        return `${min}:${sec < 10 ? "0" : ""}${sec}`;
-    }
-
+export default function TrackItem({ id, musicName, artistName, albumName, duration, imageSrc, width = 50 } : { id: string, musicName: string, artistName: string, albumName: string, duration: string, imageSrc: string, width: number }) {
     return (
-        <li className="flex gap-5 items-center group cursor-pointer">
+        <Link className="flex gap-5 items-center group cursor-pointer" href={`/tracks/${encodeURIComponent(id)}`}>
             <ItemImageContent name={albumName} imageSrc={imageSrc} width={width} rounded={false}/>
 
             <div className="flex flex-1 justify-between">
@@ -21,6 +15,6 @@ export default function TrackItem({ musicName, artistName, albumName, duration, 
 
                 <span className="text-[.85rem] text-zinc-400">{convertedMusicTime(duration)}</span>
             </div>
-        </li>
+        </Link>
     );
 }

@@ -12,7 +12,7 @@ export default async function TrackList({ timeRange, limit = 50 }: { timeRange: 
     return (
         <div className="w-full flex flex-col gap-5">
             {data.map((track: any) => (
-                <TrackItem key={track.id} musicName={track.name} artistName={track.artists[0].name} albumName={track.album.name} duration={track.duration_ms} imageSrc={track.album.images[0]?.url} width={50} />
+                <TrackItem key={track.id} id={track.id} musicName={track.name} artistName={track.artists[0].name} albumName={track.album.name} duration={track.duration_ms} imageSrc={track.album.images[0]?.url} width={50} />
             ))}
         </div>
     );

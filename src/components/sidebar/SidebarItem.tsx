@@ -27,10 +27,10 @@ function Icon({ name, className }: { name: string, className?: string }) {
 export default function SidebarItem({ item, active }: { item: SidebarItemType, active: boolean }) {
 
     return (
-        <li className={`border-l-4 transition duration-500 ${active ? "bg-zinc-900 border-green-500" : "border-transparent hover:bg-zinc-900 hover:border-green-500"}`} key={item.id}>
-            <Link href={item.route} className="grid place-items-center py-4">
-                <div className="flex flex-col items-center gap-1 text-xs text-zinc-200">
-                    <Icon name={item.icon} className="w-6 h-6" />
+        <li className={`w-full border-t-4 md:border-l-4 md:border-t-0 transition duration-500 py-2 min-[420px]:py-4 ${active ? "bg-zinc-900 border-green-500" : "border-transparent hover:bg-zinc-900 hover:border-green-500"}`} key={item.id}>
+            <Link href={item.route} className="grid place-items-center">
+                <div className="flex flex-col items-center gap-1 text-[.6rem] min-[420px]:text-xs text-zinc-200 text-center">
+                    <Icon name={item.icon} className="w-5 min-[420px]:w-6 h-5 min-[420px]:h-6" />
                     {item.text}
                 </div>
             </Link>

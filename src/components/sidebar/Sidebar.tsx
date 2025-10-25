@@ -20,18 +20,18 @@ export default function Sidebar() {
     const activeId = items.find((item) => item.route === pathname)?.id ?? -1;
 
     return (
-        <aside className="w-24 bg-black flex flex-col justify-between shadow-[0_0_10px_rgba(0,0,0,0.3)]">
-            <nav className="flex items-center justify-center h-24">
+        <aside className="h-fit md:h-full w-full md:w-24 md:max-w-[10vw] bg-black flex md:flex-col justify-between [&>nav]:flex-shrink shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+            <nav className="responsive-sidebar-item hidden md:flex items-center justify-center py-4">
                 <Image src="/logo.svg" width={50} height={50} alt="Logo" priority />
             </nav>
 
-            <ul className="flex flex-col">
+            <ul className="responsive-list h-full w-full md:w-auto justify-around md:justify-center flex md:flex-col">
                 {items.map((item) => (
                     <SidebarItem key={item.id} item={item} active={activeId === item.id} />
                 ))}
             </ul>
 
-            <nav className="flex items-center justify-center h-24">
+            <nav className="responsive-sidebar-item hidden md:flex items-center justify-center py-4">
                 <a className="hover:text-green-500" href="https://github.com/David-Dev-Coder" target="_blank">
                     <ImGithub className="w-10 h-10" />
                 </a>

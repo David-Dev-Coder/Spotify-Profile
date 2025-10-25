@@ -9,6 +9,7 @@ export default async function TrackList(session: any) {
             {(posts?.map(({ track } : { track: any }, i : number) => (
                 track && track.album && track.album.images[2] ? (
                     <TrackItem
+                        id={track.id}
                         musicName={track.name}
                         artistName={track.artists[0].name}
                         albumName={track.album.name}

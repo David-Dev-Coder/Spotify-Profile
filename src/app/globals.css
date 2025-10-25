@@ -47,4 +47,21 @@
     .default-container {
         @apply flex max-w-6xl w-[calc(100%-2rem)] py-16;
     }
+
+    @media screen and (max-height: 520px) {
+        .responsive-sidebar-item {
+            @apply hidden !important;
+        }
+
+        .responsive-list {
+            @apply [&>li]:py-2 !important;
+        }
+    }
+
+    @media screen and (max-height: 300px) {
+        .responsive-list {
+            @apply [&>li]:py-1 !important;
+        }
+    }
+
 }

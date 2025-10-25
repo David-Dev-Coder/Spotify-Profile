@@ -23,7 +23,7 @@ export default async function Playlists({ params }: { params: { id: string } }) 
 
                 <div className="w-full flex flex-col gap-5">
                     {data.tracks?.items && data.tracks.items.map((item: any) => (
-                        <TrackItem key={item.track.id} musicName={item.track.name} artistName={item.track.artists[0].name} albumName={item.track.album.name} duration={item.track.duration_ms} imageSrc={item.track.album.images[0]?.url} width={50} />
+                        <TrackItem key={item.track.id} id={item.track.id} musicName={item.track.name} artistName={item.track.artists[0].name} albumName={item.track.album.name} duration={item.track.duration_ms} imageSrc={item.track.album.images[0]?.url} width={50} />
                     ))}
                 </div>
             </div>
