@@ -1,6 +1,7 @@
 import SessionProvider from "@/providers/sessionProvider";
 import "./globals.css";
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
     title: "Spotify Profile",
@@ -12,10 +13,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <SessionProvider session={null}>
-            <html lang="pt-br">
-                <body className="bg-zinc-900 text-zinc-50 font-body">{children}</body>
-            </html>
-        </SessionProvider>
+        <>
+            <SessionProvider session={null}>
+                <html lang="pt-br">
+                    <body className="bg-zinc-900 text-zinc-50 font-body">{children}</body>
+                </html>
+            </SessionProvider>
+            <Analytics/>
+        </>
     );
 }
