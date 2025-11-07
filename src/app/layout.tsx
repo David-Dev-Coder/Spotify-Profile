@@ -13,13 +13,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <>
-            <SessionProvider session={null}>
-                <html lang="pt-br">
-                    <body className="bg-zinc-900 text-zinc-50 font-body">{children}</body>
-                </html>
-            </SessionProvider>
-            <Analytics/>
-        </>
+        <SessionProvider session={null}>
+            <html lang="pt-br">
+                <body className="bg-zinc-900 text-zinc-50 font-body">
+                    {children}
+                    <Analytics />
+                </body>
+            </html>
+        </SessionProvider>
     );
 }

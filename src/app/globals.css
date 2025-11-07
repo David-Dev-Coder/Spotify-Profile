@@ -26,6 +26,10 @@
 /* custom scrollbar */
 ::-webkit-scrollbar {
     width: 20px;
+
+    @media screen and (max-width: 640px) {
+        width: 14px;
+    }
 }
 
 ::-webkit-scrollbar-track {
@@ -37,6 +41,10 @@
     border-radius: 20px;
     border: 6px solid transparent;
     background-clip: content-box;
+
+    @media screen and (max-width: 640px) {
+        border: 4px solid transparent;
+    }
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -45,7 +53,7 @@
 
 @layer base {
     .default-container {
-        @apply flex max-w-6xl w-[calc(100%-2rem)] py-16;
+        @apply flex max-w-6xl w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] py-8 sm:py-16;
     }
 
     @media screen and (max-height: 520px) {

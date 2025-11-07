@@ -10,7 +10,7 @@ export default async function ArtistList({ timeRange, limit = 50, mini = false }
     const data = await getTopArtists(session, timeRange, limit);
     
     return (
-        <div className={`w-full gap-5 ${mini ? "flex flex-col" : "grid grid-cols-[repeat(auto-fit,minmax(200px,_1fr))]"}`}>
+        <div className={`w-full gap-3 sm:gap-5 ${mini ? "flex flex-col" : "grid grid-cols-1 -xs:grid-cols-2 sm:grid-cols-[repeat(auto-fit,minmax(200px,_1fr))]"}`}>
             {data.map((artist: any) => (
                 <ArtistItem key={artist.id} id={artist.id} name={artist.name} imageSrc={artist.images[0]?.url} width={mini ? 50 : 200} row={mini} />
             ))}
