@@ -53,7 +53,7 @@
 
 @layer base {
     .default-container {
-        @apply flex max-w-6xl w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] py-8 sm:py-16;
+        @apply flex max-w-6xl px-4 sm:px-8 w-[100vw] py-8 sm:py-16;
     }
 
     @media screen and (max-height: 520px) {

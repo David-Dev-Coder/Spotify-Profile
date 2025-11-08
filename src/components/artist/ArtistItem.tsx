@@ -6,7 +6,7 @@ export default function ArtistItem({ name, id, imageSrc, width = 50, row = false
         <Link className={`flex gap-2 sm:gap-5 items-center group cursor-pointer ${row ? "flex-row" : "flex-col"}`} href={`/artists/view?id=${encodeURIComponent(id)}`}>
             <ItemImageContent name={name} imageSrc={imageSrc} width={width} rounded={true}/>
 
-            <p className="hover:underline underline-offset-2 text-base">{name}</p>
+            <p className="hover:underline underline-offset-2 text-sm xs:text-base text-center">{name}</p>
         </Link>
     );
 }

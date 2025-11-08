@@ -5,10 +5,10 @@ export default function Playlists() {
     <div className="default-container">
         <div className="flex flex-col flex-1 mt-2">
             <header className="flex">
-                <h1 className="text-2xl font-bold">Your Playlists</h1>
+                <h1 className="text-xl sm:text-2xl font-bold">Your Playlists</h1>
             </header>
 
-            <section className="flex mt-20 w-full">
+            <section className="flex mt-10 sm:mt-20 w-full">
                 <PlaylistList />
             </section>
         </div>

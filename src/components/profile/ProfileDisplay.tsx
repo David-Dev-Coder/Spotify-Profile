@@ -13,7 +13,7 @@ export default function ProfileDisplay({ user, playlists, following }: ProfilePr
                 <div className="flex flex-col sm:grid sm:grid-cols-2 gap-8 sm:gap-14">
                     <div className="flex flex-col gap-4 sm:gap-8">
                         <div className="flex justify-between items-center gap-1">
-                            <h3 className="text-md xs:text-lg font-semibold">Top Artists of All Time</h3>
+                            <h3 className="text-base xs:text-lg font-semibold">Top Artists of All Time</h3>
 
                             <Link
                                 href="/artists"
@@ -34,7 +34,7 @@ export default function ProfileDisplay({ user, playlists, following }: ProfilePr
 
                     <div className="flex flex-col gap-4 sm:gap-8">
                         <div className="flex justify-between items-center gap-1">
-                            <h3 className="text-md xs:text-lg font-semibold">Top Tracks of All Time</h3>
+                            <h3 className="text-base xs:text-lg font-semibold">Top Tracks of All Time</h3>
 
                             <Link
                                 href="/tracks"

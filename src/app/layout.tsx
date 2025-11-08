@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <SessionProvider session={null}>
             <html lang="pt-br">
-                <body className="bg-zinc-900 text-zinc-50 font-body">
+                <body className="bg-zinc-900 text-zinc-50 font-body select-none">
                     {children}
                     <Analytics />
                 </body>
